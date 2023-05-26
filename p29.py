@@ -12,13 +12,13 @@ class Example(QWidget):
         QToolTip.setFont(QFont('Calibri', 14))
         self.setToolTip('Это <b>подсказка</b> виджета')
 
-        btn = QPushButton('Моя кнопка', self)
+        btn = QPushButton('Моя <b>кнопка </b>', self)
         btn.setToolTip('Это <b>подсказка</b> кнопки')
         btn.resize(btn.sizeHint())
-        btn.move(100, 50)
+        btn.move(0, 0)
 
 
-        self.setGeometry(500, 500, 300, 220)
+        self.setGeometry(600, 800, 300, 220)
         self.setWindowTitle('Программа')
         self.setWindowIcon(QIcon('index.png'))
         self.show()

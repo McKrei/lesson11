@@ -8,9 +8,11 @@ class Example(QWidget):
         self.initUI()
 
     def initUI(self):
-        self.setGeometry(500, 500, 300, 220)
-        self.setWindowTitle('hello')
-        self.setWindowIcon(QIcon('index.png'))
+        self.setGeometry(500, 500, 600, 220)
+        self.move(800, 600)
+        self.setWindowTitle('Текст окна')
+        self.setWindowIcon(QIcon('22.png'))
+        self.toolTip('<h1>New app</h1>')
         self.show()
 
 

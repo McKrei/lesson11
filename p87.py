@@ -5,15 +5,13 @@ con.setDatabaseName("81.sqlite")
 con.open()
 
 query = QSqlQuery()
-query.exec("SELECT name, job, email FROM contacts")
+query.exec("SELECT * FROM contacts")
 query.first()
 
-name, job, email = range(3)
+id, name, job, email = range(4)
 
-query.value(name)
-
-query.next()
-query.value(job)
-
-query.last()
-query.value(email)
+while query.next():
+    print(query.value(name))
+    print(query.value(job))
+    print(query.value(email))
+    print("-----")

@@ -18,7 +18,7 @@ insertDataQuery = QSqlQuery()
 res = insertDataQuery.prepare(
     """
     INSERT INTO contacts (name, job, email)
-    VALUES (?, ?, ?, ?)
+    VALUES (?, ?, ?)
     """
 )
 
@@ -35,4 +35,5 @@ for name, job, email in data:
     insertDataQuery.addBindValue(job)
     insertDataQuery.addBindValue(email)
     insertDataQuery.exec()
+
 print(res)

@@ -29,7 +29,11 @@ class MainWindow(QWidget):
         self.load_categories()
         self.tasks_list.itemClicked.connect(self.task_detail)
         self.categories_list.itemClicked.connect(self.category_detail)
+
+
         self.button_add_task.clicked.connect(self.add_task)
+
+
         self.button_delete_task.clicked.connect(self.delete_task)
         self.button_add_category.clicked.connect(self.add_category)
         self.button_delete_category.clicked.connect(self.delete_category)
@@ -37,7 +41,7 @@ class MainWindow(QWidget):
         self.button_edit_category.clicked.connect(self.edit_category)
 
     def init_ui(self):
-        self.resize(400, 500)
+        self.resize(600, 800)
         self.setWindowTitle("Список задач")
         vbox = QVBoxLayout()
         self.name1 = QLabel('Список задач:', self)
@@ -45,8 +49,8 @@ class MainWindow(QWidget):
         vbox.addWidget(self.tasks_list)
         hbox = QHBoxLayout()
         hbox.addWidget(self.button_all_tasks)
-        hbox.addWidget(self.button_active_tasks)
-        hbox.addWidget(self.button_done_tasks)
+        # hbox.addWidget(self.button_active_tasks)
+        # hbox.addWidget(self.button_done_tasks)
         vbox.addLayout(hbox)
         hbox = QHBoxLayout()
         self.name2 = QLabel('Название задачи:', self)
@@ -70,12 +74,13 @@ class MainWindow(QWidget):
         hbox.addWidget(self.button_add_task)
         hbox.addWidget(self.button_edit_task)
         hbox.addWidget(self.button_delete_task)
-        vbox.addLayout(hbox)
-        hbox = QHBoxLayout()
         hbox.addWidget(self.button_add_category)
         hbox.addWidget(self.button_edit_category)
         hbox.addWidget(self.button_delete_category)
         vbox.addLayout(hbox)
+        # hbox = QHBoxLayout()
+
+        # vbox.addLayout(hbox)
         self.setLayout(vbox)
 
     def create_db(self):
@@ -150,7 +155,9 @@ class MainWindow(QWidget):
     def add_task(self):
         name = self.task_name.text()
         description = self.task_description.toPlainText()
+
         row = self.categories_list.currentRow()
+        lst = ['кат1', 'кат2', 'кат3']
         category_id = self.categories[row][0]
         query = QSqlQuery()
         query.exec(

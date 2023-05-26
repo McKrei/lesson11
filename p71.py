@@ -9,7 +9,7 @@ if not con.open():
     print("Database Error: %s" % con.lastError().databaseText())
     sys.exit(1)
 
-
+print(con.tables())
 createTableQuery = QSqlQuery()
 createTableQuery.exec(
     f"""
@@ -28,7 +28,6 @@ job = "Technical Lead"
 email = "linda@example.com"
 
 query = QSqlQuery()
-query.exec(
-        f"""INSERT INTO contacts (name, job, email)
-        VALUES ('{name}', '{job}', '{email}')"""
-    )
+q = f"""INSERT INTO contacts (name, job, email) VALUES ('{name}', '{job}', '{email}')"""
+
+query.exec(q)
